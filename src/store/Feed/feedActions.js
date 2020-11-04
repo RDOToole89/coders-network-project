@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const API_URL = `https://codaisseur-coders-network.herokuapp.com`;
+import { API_URL } from "../../config";
 
 export const startLoading = () => {
   return {
@@ -22,7 +21,7 @@ export const fetchNext5Posts = async (dispatch, getState) => {
 
   try {
     const response = await axios.get(`${API_URL}/posts?offset=${offset}&limit=5`);
-    console.log("INCOMING DATA", response.data);
+    console.log("INCOMING 5 FETCHED POSTS", response.data);
 
     const morePosts = response.data.rows;
 

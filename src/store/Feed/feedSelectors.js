@@ -5,3 +5,7 @@ export const selectFeedLoading = (reduxState) => {
 export const selectFeedPosts = (reduxState) => {
   return reduxState.feed.posts;
 };
+
+export const selectSpecificFeedPost = (reduxState) => {
+  return reduxState.feed.singlePost;
+};
