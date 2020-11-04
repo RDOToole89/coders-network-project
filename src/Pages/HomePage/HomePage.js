@@ -1,9 +1,10 @@
 import React from "react";
+import PostsFeed from "../../Components/PostsFeed/PostsFeed";
 
 function HomePage() {
   return (
     <div>
-      <h1>The Page is Connected!</h1>
+      <PostsFeed />
     </div>
   );
 }
