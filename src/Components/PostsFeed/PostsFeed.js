@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFeedLoading, selectFeedPosts } from "../../store/Feed/feedSelectors";
-import { postsFetched, startLoading } from "../../store/Feed/feedActions";
+import { fetchNext5Posts } from "../../store/Feed/feedActions";
+// import { postsFetched } from "../../store/Feed/feedActions";
+// import { startLoading } from "../../store/Feed/feedActions";
 
-const API_URL = `https://codaisseur-coders-network.herokuapp.com`;
+// const API_URL = `https://codaisseur-coders-network.herokuapp.com`;
 
 function PostsFeed() {
   const dispatch = useDispatch();
@@ -16,26 +18,26 @@ function PostsFeed() {
   //   posts: [],
   // });
 
-  const fetchNext5Posts = async () => {
-    dispatch(startLoading());
+  // const fetchNext5Posts = async () => {
+  //   dispatch(startLoading());
 
-    try {
-      const response = await axios.get(`${API_URL}/posts?offset=${posts.length}&limit=5`);
-      console.log("INCOMING DATA", response.data);
+  //   try {
+  //     const response = await axios.get(`${API_URL}/posts?offset=${posts.length}&limit=5`);
+  //     console.log("INCOMING DATA", response.data);
 
-      const morePosts = response.data.rows;
+  //     const morePosts = response.data.rows;
 
-      // setData({ loading: false, posts: [...data.posts, ...morePosts] });
-      dispatch(postsFetched(morePosts));
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  //     // setData({ loading: false, posts: [...data.posts, ...morePosts] });
+  //     dispatch(postsFetched(morePosts));
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
   useEffect(() => {
-    fetchNext5Posts();
+    dispatch(fetchNext5Posts);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   console.log("WHAT IS DATA", posts);
 
