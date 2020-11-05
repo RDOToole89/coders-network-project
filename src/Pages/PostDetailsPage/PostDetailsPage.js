@@ -58,7 +58,7 @@ function PostDetailsPage() {
         ) : (
           <h2>Loading...</h2>
         )}
-        {comments.length === 0 && <h3>No comments for this post!</h3>}
+        {comments.length === 0 && <h3>No comments for this boring ass post ;-(!</h3>}
       </div>
     </div>
   );
